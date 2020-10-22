@@ -78,7 +78,6 @@ def exec_function(exec_socket, kvs, user_library, cache, function_cache):
         succeed = kvs.put(call.response_key, result)
         logging.info('Putting result to KVS %s: (%s, %s)!' % (call.name, call.response_key,
                                                      str(result)))
-        logging.info("Checking the stored value: %s", str(kvs.get(call.response_key)))
     else:
         result = serializer.dump_lattice(result, MultiKeyCausalLattice,
                                          causal_dependencies=dependencies)

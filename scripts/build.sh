@@ -24,9 +24,9 @@ fi
 rm -rf cloudburst/shared/proto
 mkdir cloudburst/shared/proto
 touch cloudburst/shared/proto/__init__.py
-protoc -I=common/proto --python_out=cloudburst/shared/proto cloudburst.proto shared.proto
-protoc -I=common/proto --python_out=cloudburst/shared/proto anna.proto shared.proto causal.proto
-protoc -I=proto --python_out=cloudburst/shared/proto internal.proto
+protoc -I=common/proto --python_out=cloudburst/shared/proto common/proto/cloudburst.proto common/proto/shared.proto
+protoc -I=common/proto --python_out=cloudburst/shared/proto common/proto/anna.proto common/proto/shared.proto common/proto/causal.proto
+protoc -I=proto --python_out=cloudburst/shared/proto proto/internal.proto
 
 # NOTE: This is a hack. We have to do this because the protobufs are not
 # packaged properly (in the protobuf definitions). This isn't an issue for C++

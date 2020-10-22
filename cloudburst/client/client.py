@@ -58,6 +58,7 @@ class CloudburstConnection():
 
         self.service_addr = 'tcp://' + func_addr + ':%d'
         self.context = zmq.Context(1)
+        logging.info("hello")
 
         kvs_addr = self._connect()
         while not kvs_addr:
