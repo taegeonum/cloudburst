@@ -22,6 +22,7 @@ class CloudburstFuture():
 
     def get(self):
         obj = self.kvs_client.get(self.obj_id)[self.obj_id]
+        logging.info('\tGetting %s...' % (self.obj_id))
 
         while obj is None:
             obj = self.kvs_client.get(self.obj_id)[self.obj_id]

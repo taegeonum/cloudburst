@@ -76,6 +76,8 @@ def exec_function(exec_socket, kvs, user_library, cache, function_cache):
     if call.consistency == NORMAL:
         result = serializer.dump_lattice(result)
         succeed = kvs.put(call.response_key, result)
+        logging.info('Putting result to KVS %s: (%s, %s)!' % (call.name, call.response_key,
+                                                     str(result)))
     else:
         result = serializer.dump_lattice(result, MultiKeyCausalLattice,
                                          causal_dependencies=dependencies)
