@@ -12,6 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+import time, logging
 
 class CloudburstFuture():
     def __init__(self, obj_id, kvs_client, serializer):
@@ -24,5 +25,7 @@ class CloudburstFuture():
 
         while obj is None:
             obj = self.kvs_client.get(self.obj_id)[self.obj_id]
+            time.sleep(1)
+            logging.info('\tRetrieving %s...' % (self.obj_id))
 
         return self.serializer.load_lattice(obj)
