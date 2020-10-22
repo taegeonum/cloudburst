@@ -63,8 +63,7 @@ def call_function(func_call_socket, pusher_cache, policy):
     # Send a success response to the user with the response key.
     response.success = True
     response.response_id = call.response_key
-    logging.log("Function %s call is forwarded to executor (%s, %s), "
-                "responseKey: %s"
+    logging.log("Function %s call is forwarded to executor (%s, %s), responseKey: %s"
                 & (call.name, ip, tid, response.response_id))
     func_call_socket.send(response.SerializeToString())
 
